@@ -1,14 +1,23 @@
 package lab4_ingrid_claudia;
+
+import java.util.ArrayList;
+
 public class Partida {
-    Private ArrayList <Ataque>Ataques= new ArrayList();
+    private ArrayList <Object>Ataques= new ArrayList();
+    
 
     public Partida() {
     }
 
-    public Partida(Private ArrayList, Ataque ) {
-        this.ArrayList = ArrayList;
-
+    public ArrayList<Object> getAtaques() {
+        return Ataques;
     }
+
+    public void setAtaques(ArrayList<Object> Ataques) {
+        this.Ataques = Ataques;
+    }
+
+   
 }
     
-}
+

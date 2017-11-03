@@ -6,9 +6,6 @@ int puntos =0;
         super();
     }
 
-
-
-
     public int getPuntos() {
         return puntos;
     }
