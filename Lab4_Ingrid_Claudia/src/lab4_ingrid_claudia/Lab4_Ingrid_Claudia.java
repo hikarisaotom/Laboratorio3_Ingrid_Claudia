@@ -32,6 +32,7 @@ public class Lab4_Ingrid_Claudia {
                 case "Registro de jugadores":
                     break;
                 case "Iniciar Partida":
+                    //IniciarPartida();
                     break;
 
                 case "Cargar Partida":
@@ -84,7 +85,8 @@ public class Lab4_Ingrid_Claudia {
         switch (Opcion) {
             case "Mago":
                 Guerreros.add(new Mago());
-                OrdernarGuerreros();
+                
+               // OrdernarGuerreros();
                 break;
             case "Elfo":
                 Guerreros.add(new Elfo());
@@ -176,29 +178,7 @@ public class Lab4_Ingrid_Claudia {
         return res-1;
 
     }
-      public static void IniciarPartida(){
-         boolean Ganador=false;
-         int Turno=0;
-         while (true){
-             if (Ganador) {
-                 break;
-             }
-             switch(Turno){
-                 case 0:
-                     Turno=1;
-                     break;
-                 case 1:
-                     Turno=0;
-                     break;
-             }
-             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
-             
-             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
-                Partidas.add(new Partida());
-                int Tamano=Partidas.size()-1;
-                Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
-             
-         }
-     }
+     
+
 
 }

@@ -44,9 +44,31 @@ public class Elfo extends Guerrero {
         return "Elfo{" + "Tipo_Arma=" + Tipo_Arma + ", Rango_Militar=" + Rango_Militar + '}';
     }
     
-    @Override
-    public void Ataque(){
-        
+    public int  Ataque(){
+        return super.getPoder_Ataque();
     }
+    /* public static void IniciarPartida(){
+         boolean Ganador=false;
+         int Turno=0;
+             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+                Partidas.add(new Partida());
+                int Tamano=Partidas.size()-1;
+                Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
+                while (true){
+             if (Ganador) {
+                 break;
+             }
+             switch(Turno){
+                 case 0:
+                     Turno=1;
+                     break;
+                 case 1:
+                     Turno=0;
+                     break;
+             }
+         }
+      
+     }*/
     
 }

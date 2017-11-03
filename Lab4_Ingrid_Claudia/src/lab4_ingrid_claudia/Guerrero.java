@@ -81,7 +81,7 @@ public abstract class Guerrero {
     public String toString() {
         return "Guerrero{" + "Nombre=" + Nombre + ", Edad=" + Edad + ", Lugar_Nacimiento=" + Lugar_Nacimiento + ", Poder_Ataque=" + Poder_Ataque + ", Salud=" + Salud + ", Costo=" + Costo + '}';
     }
-    public abstract void Ataque();
+    public abstract int Ataque();
         
     
     

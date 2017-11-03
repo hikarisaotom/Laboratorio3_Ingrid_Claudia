@@ -1,7 +1,7 @@
 package lab4_ingrid_claudia;
 public class Arquero extends Guerrero{
     
-    public void Ataque (){
-    
-}
+   public int  Ataque(){
+        return super.getPoder_Ataque();
+    }
 }

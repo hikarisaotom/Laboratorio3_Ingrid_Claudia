@@ -14,10 +14,9 @@ int puntos =0;
         this.puntos = puntos;
     }
     
-@Override
-public void Ataque (){
-    
-}
+ public int  Ataque(){
+        return super.getPoder_Ataque();
+    }
 
     
 }
