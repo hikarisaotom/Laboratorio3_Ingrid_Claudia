@@ -30,9 +30,11 @@ public class Lab4_Ingrid_Claudia {
                     Eliminar_Guerrero();
                     break;
                 case "Registro de jugadores":
+                    Crear_Jugador();
+                    
                     break;
                 case "Iniciar Partida":
-                    //IniciarPartida();
+                    IniciarPartida();
                     break;
 
                 case "Cargar Partida":
@@ -146,8 +148,8 @@ public class Lab4_Ingrid_Claudia {
 
         System.out.println(Guerreros);
     }//Fin del metodo.
-    
-     public static int Agregar_Guerrero() {
+
+    public static int Agregar_Guerrero() {
         String guerreros = "";
         for (int i = 0; i < Guerreros.size(); i++) {
             guerreros += "" + (i + 1) + ".- " + Guerreros.get(i).getNombre() + "\n";
@@ -158,12 +160,12 @@ public class Lab4_Ingrid_Claudia {
 
         //Guerreros.remove(res - 1);
         JOptionPane.showMessageDialog(null, "Guerero Seleccionado");
-         //System.out.println("ds");
-        return res-1;
+        //System.out.println("ds");
+        return res - 1;
 
     }
-     
-     public static int Agregar_Jugador() {
+
+    public static int Agregar_Jugador() {
         String guerreros = "";
         for (int i = 0; i < Jugadores.size(); i++) {
             guerreros += "" + (i + 1) + ".- " + Jugadores.get(i).getNombre() + "\n";
@@ -174,11 +176,96 @@ public class Lab4_Ingrid_Claudia {
 
         //Guerreros.remove(res - 1);
         JOptionPane.showMessageDialog(null, "Jugador Seleccionado");
-         System.out.println("ds");
-        return res-1;
+        System.out.println("ds");
+        return res - 1;
 
     }
+
+   /* public static void IniciarPartida() {
+        boolean Ganador = false;
+        int Turno = 0;
+        while (true) {
+            if (Ganador) {
+                break;
+            }
+            switch (Turno) {
+                case 0:
+                    Turno = 1;
+                    break;
+                case 1:
+                    Turno = 0;
+                    break;
+            }
+            Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+
+            Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+            Partidas.add(new Partida());
+            int Tamano = Partidas.size() - 1;
+            Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
+
+        }
+    }*/
+
+     public static void Crear_Jugador() {
+        String nombre = JOptionPane.showInputDialog("Ingresa el nombre de jugador");
+        double dinero = Double.parseDouble(JOptionPane.showInputDialog("Ingresa la cantidad de dinero de jugador"));
+        int puntos = 0;
+        int posicion_Guerrero = Agregar_Guerrero();
+        Guerrero Guerrero_Seleccionado = Guerreros.get(posicion_Guerrero);
+        
+        while(Guerrero_Seleccionado.getCosto() > dinero){
+          posicion_Guerrero = Agregar_Guerrero();
+          Guerrero_Seleccionado = Guerreros.get(posicion_Guerrero);
+          
+        }// fin del while
+        
+        dinero = dinero - Guerrero_Seleccionado.getCosto();
+        Guerreros.remove(posicion_Guerrero);
+        
+        
+        Jugadores.add(new Jugador(nombre, dinero, puntos, Guerrero_Seleccionado));
+        System.out.println(Jugadores.get(Jugadores.size()-1));
+    }
      
-
-
+     public static void IniciarPartida(){
+         boolean Ganador=false;
+         int Turno=0;
+         int TurnoOP=0;
+             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+                Partidas.add(new Partida());
+                int Tamano=Partidas.size()-1;
+                Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
+                
+                while (true){
+             if (Ganador) {
+                 break;
+             }
+             switch(Turno){
+                 case 0:
+                     Turno=1;
+                     TurnoOP=0;
+                     break;
+                 case 1:
+                     Turno=0;
+                     TurnoOP=1;
+                     break;
+             }
+              System.out.println(Jugadores_Partidas.get(Turno).getNombre()+"  Esta Atacando:");
+                    if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Mago ) {
+                        
+                    }else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Mago ){
+                        
+                    }else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Bruja ){
+                        
+                    }else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Dragon ){
+                          
+                    }else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Arquero){
+                        
+                    }else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Elfo){
+                        
+                    }
+         }
+      
+     }
 }
