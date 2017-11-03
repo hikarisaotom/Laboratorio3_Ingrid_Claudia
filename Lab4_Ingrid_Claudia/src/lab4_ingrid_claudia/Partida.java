@@ -18,6 +18,19 @@ public class Partida {
         this.Ataques = Ataques;
     }
 
+    public ArrayList<Jugador> getJugadores_Partida() {
+        return Jugadores_Partida;
+    }
+
+    public void setJugadores_Partida( ArrayList<Jugador> Jugadores_Partida) {
+        this.Jugadores_Partida=Jugadores_Partida;
+    }
+
+    @Override
+    public String toString() {
+        return "Partida{" + "Ataques=" + Ataques + ", Jugadores_Partida=" + Jugadores_Partida + '}';
+    }
+
    
 }
     

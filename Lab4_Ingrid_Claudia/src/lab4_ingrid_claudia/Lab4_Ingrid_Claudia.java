@@ -156,8 +156,8 @@ public class Lab4_Ingrid_Claudia {
 
         //Guerreros.remove(res - 1);
         JOptionPane.showMessageDialog(null, "Guerero Seleccionado");
-         System.out.println("ds");
-        return res;
+         //System.out.println("ds");
+        return res-1;
 
     }
      
@@ -173,8 +173,32 @@ public class Lab4_Ingrid_Claudia {
         //Guerreros.remove(res - 1);
         JOptionPane.showMessageDialog(null, "Jugador Seleccionado");
          System.out.println("ds");
-        return res;
+        return res-1;
 
     }
+      public static void IniciarPartida(){
+         boolean Ganador=false;
+         int Turno=0;
+         while (true){
+             if (Ganador) {
+                 break;
+             }
+             switch(Turno){
+                 case 0:
+                     Turno=1;
+                     break;
+                 case 1:
+                     Turno=0;
+                     break;
+             }
+             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+             
+             Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+                Partidas.add(new Partida());
+                int Tamano=Partidas.size()-1;
+                Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
+             
+         }
+     }
 
 }

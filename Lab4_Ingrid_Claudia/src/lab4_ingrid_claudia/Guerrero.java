@@ -9,7 +9,7 @@ package lab4_ingrid_claudia;
  *
  * @author 1234
  */
-public class Guerrero {
+public abstract class Guerrero {
     private String Nombre;
     private int Edad;
     private String Lugar_Nacimiento;
@@ -81,9 +81,8 @@ public class Guerrero {
     public String toString() {
         return "Guerrero{" + "Nombre=" + Nombre + ", Edad=" + Edad + ", Lugar_Nacimiento=" + Lugar_Nacimiento + ", Poder_Ataque=" + Poder_Ataque + ", Salud=" + Salud + ", Costo=" + Costo + '}';
     }
-    
-    public void Ataque(){
+    public abstract void Ataque();
         
-    }
+    
     
 }
