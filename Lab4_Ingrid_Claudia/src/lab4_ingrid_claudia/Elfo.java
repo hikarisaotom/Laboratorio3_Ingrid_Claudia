@@ -5,6 +5,9 @@
  */
 package lab4_ingrid_claudia;
 
+import java.util.ArrayList;
+import static lab4_ingrid_claudia.Lab4_Ingrid_Claudia.Jugadores_Partidas;
+
 /**
  *
  * @author 1234
@@ -44,7 +47,7 @@ public class Elfo extends Guerrero {
         return "Elfo{" + "Tipo_Arma=" + Tipo_Arma + ", Rango_Militar=" + Rango_Militar + '}';
     }
     
-    public int  Ataque(){
+    public double  Ataque(){
         return super.getPoder_Ataque();
     }
     /* public static void IniciarPartida(){
@@ -114,5 +117,12 @@ public class Elfo extends Guerrero {
          }
       
      }*/
+    
+    /*public static boolean Ganador(ArrayList<Jugador>Jugadores_Partidas){
+        if (Jugadores_Partidas.get(0).getGuerrero().getSalud()==0||Jugadores_Partidas.get(1).getGuerrero().getSalud()==0) {
+            return true;
+        }
+        return false;
+    }*/
     
 }

@@ -13,8 +13,8 @@ public abstract class Guerrero {
     private String Nombre;
     private int Edad;
     private String Lugar_Nacimiento;
-    private int Poder_Ataque;
-    private int Salud;
+    private double Poder_Ataque;
+    private double Salud;
     private int Costo;
 
     public Guerrero() {
@@ -53,19 +53,19 @@ public abstract class Guerrero {
         this.Lugar_Nacimiento = Lugar_Nacimiento;
     }
 
-    public int getPoder_Ataque() {
+    public double getPoder_Ataque() {
         return Poder_Ataque;
     }
 
-    public void setPoder_Ataque(int Poder_Ataque) {
+    public void setPoder_Ataque(double Poder_Ataque) {
         this.Poder_Ataque = Poder_Ataque;
     }
 
-    public int getSalud() {
+    public double getSalud() {
         return Salud;
     }
 
-    public void setSalud(int Salud) {
+    public void setSalud(double Salud) {
         this.Salud = Salud;
     }
 
@@ -81,7 +81,7 @@ public abstract class Guerrero {
     public String toString() {
         return "Guerrero{" + "Nombre=" + Nombre + ", Edad=" + Edad + ", Lugar_Nacimiento=" + Lugar_Nacimiento + ", Poder_Ataque=" + Poder_Ataque + ", Salud=" + Salud + ", Costo=" + Costo + '}';
     }
-    public abstract int Ataque();
+    public abstract double Ataque();
         
     
     

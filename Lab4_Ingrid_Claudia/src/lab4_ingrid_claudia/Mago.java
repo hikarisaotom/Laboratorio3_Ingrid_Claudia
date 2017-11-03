@@ -42,7 +42,7 @@ public class Mago extends Guerrero{
   
     
     @Override
-    public int  Ataque(){
+    public double  Ataque(){
         return super.getPoder_Ataque();
     }
 }
