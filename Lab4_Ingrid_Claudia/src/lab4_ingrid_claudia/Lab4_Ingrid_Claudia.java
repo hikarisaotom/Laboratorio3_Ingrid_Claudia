@@ -88,8 +88,8 @@ public class Lab4_Ingrid_Claudia {
         switch (Opcion) {
             case "Mago":
                 Guerreros.add(new Mago());
-                
-               // OrdernarGuerreros();
+
+                // OrdernarGuerreros();
                 break;
             case "Elfo":
                 Guerreros.add(new Elfo());
@@ -181,6 +181,7 @@ public class Lab4_Ingrid_Claudia {
         return res - 1;
 
     }
+<<<<<<< HEAD
 //skjhsjks
    /* public static void IniciarPartida() {
         boolean Ganador = false;
@@ -206,6 +207,9 @@ public class Lab4_Ingrid_Claudia {
 
         }
     }*/
+=======
+
+>>>>>>> 96e2ae940eb3ba7e3ccf1230ca276ef1a59fd0e5
     public static void Crear_Jugador() {
         String nombre = JOptionPane.showInputDialog("Ingresa el nombre de jugador");
         double dinero = Double.parseDouble(JOptionPane.showInputDialog("Ingresa la cantidad de dinero de jugador"));
@@ -250,6 +254,8 @@ public class Lab4_Ingrid_Claudia {
         Partidas.add(new Partida());
         int Tamano = Partidas.size() - 1;
         Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
+        String[] Opciones = {"Si", "No"};
+        String Opcion = "";
 
         while (true) {
             if (Ganador) {
@@ -272,6 +278,23 @@ public class Lab4_Ingrid_Claudia {
                 double SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() / 2;
                 Salud = Salud - (MiPoder + SuPoder);
                 Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+
+                if (Turno == 1) {
+                    Opcion = (String) JOptionPane.showInputDialog(null,
+                            "Desea Guardar La Parida", //Mensaje
+                            "Guardar Partida",//TITULO
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            Opciones,
+                            Opciones[0]);
+
+                    switch (Opcion) {
+                        case "Si":
+                            Partidas.get(Tamano).getAtaques().add(new Ataque());
+                            break;
+                    }
+
+                }
 
             } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Elfo) {
                 double Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
@@ -308,6 +331,7 @@ public class Lab4_Ingrid_Claudia {
         }
 
     }
+<<<<<<< HEAD
     
     
     
@@ -443,4 +467,6 @@ public class Lab4_Ingrid_Claudia {
         }
         return false;
     }
+=======
+>>>>>>> 96e2ae940eb3ba7e3ccf1230ca276ef1a59fd0e5
 }
