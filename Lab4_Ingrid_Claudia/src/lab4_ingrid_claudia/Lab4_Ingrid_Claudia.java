@@ -9,6 +9,7 @@ public class Lab4_Ingrid_Claudia {
     public static ArrayList<Jugador> Jugadores = new ArrayList();
     public static ArrayList<Partida> Partidas = new ArrayList();
     public static ArrayList<Jugador> Jugadores_Partidas = new ArrayList();
+    public static ArrayList<Partida> Partidas_Guardadas = new ArrayList();
 
     public static void main(String[] args) {
         String Opcion = "";
@@ -34,10 +35,11 @@ public class Lab4_Ingrid_Claudia {
 
                     break;
                 case "Iniciar Partida":
-                    IniciarPartida();
+                    Iniciar_Gargar_Partida(1);
                     break;
 
                 case "Cargar Partida":
+                    Iniciar_Gargar_Partida(2);
                     break;
 
                 case "Listar Jugadores":
@@ -216,43 +218,84 @@ public class Lab4_Ingrid_Claudia {
         JOptionPane.showMessageDialog(null, jugadores);
     }
 
-    public static void IniciarPartida() {
+    public static void Iniciar_Gargar_Partida(int Acceso) {
         boolean Ganador = false;
         int Turno = 0;
         int TurnoOP = 0;
-        Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
-        Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
-        Partidas.add(new Partida());
-        int Tamano = Partidas.size() - 1;
-        Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
+        int Tamano = 0;
+        int Ataque = 0;
         String[] Opciones = {"Si", "No"};
         String Opcion = "";
 
-        while (true) {
-            if (Ganador) {
-                break;
-            }
-            switch (Turno) {
-                case 0:
-                    Turno = 1;
-                    TurnoOP = 0;
-                    break;
-                case 1:
-                    Turno = 0;
-                    TurnoOP = 1;
-                    break;
-            }
-            System.out.println(Jugadores_Partidas.get(Turno).getNombre() + "  Esta Atacando:");
-            if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Mago) {
-                int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
-                int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
-                int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() / 2;
-                Salud = Salud - (MiPoder + SuPoder);
-                Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+        if (Acceso == 1) {
+            Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+            Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
+            Partidas.add(new Partida());
+            Tamano = Partidas.size() - 1;
+            Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
 
+            while (true) {
+                if (Ganador) {
+                    break;
+                }
+                switch (Turno) {
+                    case 0:
+                        Turno = 1;
+                        TurnoOP = 0;
+                        break;
+                    case 1:
+                        Turno = 0;
+                        TurnoOP = 1;
+                        break;
+                }
+                System.out.println(Jugadores_Partidas.get(Turno).getNombre() + "  Esta Atacando:");
+                if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Mago) {
+                    int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
+                    int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
+                    int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() / 2;
+                    Salud = Salud - (MiPoder + SuPoder);
+                    Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+
+                } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Elfo) {
+                    int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
+                    int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
+                    //int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() / 2;
+                    Salud = Salud - (MiPoder);
+                    Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+                } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Dragon) {
+
+                    int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
+                    int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
+                    int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() /* *0.25*/;
+                    Salud = Salud - (MiPoder);
+                    Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+                    Jugadores_Partidas.get(TurnoOP).getGuerrero().setPoder_Ataque(SuPoder);
+                } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Arquero) {
+                    int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
+                    int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
+                    // int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() /* *0.25*/;
+                    Salud = Salud - (MiPoder);
+                    int MiSalud = Jugadores_Partidas.get(Turno).getGuerrero().getSalud() + 10;
+                    Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+                    Jugadores_Partidas.get(Turno).getGuerrero().setSalud(MiSalud);
+                } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Bruja) {
+                    int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
+                    int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
+                    int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque();
+                    Salud = Salud - (SuPoder);
+                    SuPoder = SuPoder + 50;
+                    //int MiSalud = Jugadores_Partidas.get(Turno).getGuerrero().getSalud()+10;
+                    Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+                    Jugadores_Partidas.get(TurnoOP).getGuerrero().setPoder_Ataque(SuPoder);
+                }
+                Partidas.get(Tamano).getAtaques().add(new Ataque(Jugadores_Partidas));
+                
+                JOptionPane.showMessageDialog(null, "Esta Atacando el Jugador "+Turno+"\n"+
+                Partidas.get(Tamano).getJugadores_Partida()) ;
+                System.out.println(Partidas.get(Tamano).getAtaques());
                 if (Turno == 1) {
                     Opcion = (String) JOptionPane.showInputDialog(null,
-                            "Desea Guardar La Parida", //Mensaje
+                            "Desea Guardar La Partida", //Mensaje
                             "Guardar Partida",//TITULO
                             JOptionPane.QUESTION_MESSAGE,
                             null,
@@ -261,45 +304,42 @@ public class Lab4_Ingrid_Claudia {
 
                     switch (Opcion) {
                         case "Si":
-                            Partidas.get(Tamano).getAtaques().add(new Ataque());
-                            break;
+
+                            Partidas_Guardadas.add(Partidas.get(Tamano));
+                            System.out.println(Partidas_Guardadas.add(Partidas.get(Tamano)));
+                            Ganador=true;
                     }
 
-                }
-
-            } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Elfo) {
-                int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
-                int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
-                //int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() / 2;
-                Salud = Salud - (MiPoder);
-                Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
-            } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Dragon) {
-
-                int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
-                int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
-                int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() /* *0.25*/;
-                Salud = Salud - (MiPoder);
-                Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
-                Jugadores_Partidas.get(TurnoOP).getGuerrero().setPoder_Ataque(SuPoder);
-            } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Arquero) {
-                int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
-                int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
-                // int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() /* *0.25*/;
-                Salud = Salud - (MiPoder);
-                int MiSalud = Jugadores_Partidas.get(Turno).getGuerrero().getSalud() + 10;
-                Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
-                Jugadores_Partidas.get(Turno).getGuerrero().setSalud(MiSalud);
-            } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Bruja) {
-                int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
-                int MiPoder = Jugadores_Partidas.get(Turno).getGuerrero().Ataque();
-                int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque();
-                Salud = Salud - (SuPoder);
-                SuPoder = SuPoder + 50;
-                //int MiSalud = Jugadores_Partidas.get(Turno).getGuerrero().getSalud()+10;
-                Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
-                Jugadores_Partidas.get(TurnoOP).getGuerrero().setPoder_Ataque(SuPoder);
+                }// fin del caso
             }
+
+        } else {
+            int numeros[] = Partidas_Guardadas();
+            Tamano = numeros[0] - 1;
+            Ataque = numeros[1];
+
         }
 
+    }// fin del metodo
+
+    public static int[] Partidas_Guardadas() {
+        String cadena = "";
+        for (int i = 0; i < Partidas_Guardadas.size(); i++) {
+            cadena += "" + (i + 1) + ".-" + "Partida " + (i + 1) + "\n";
+        }
+
+        int numeros[] = new int[2];
+        numeros[0] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la posicion de la  partida que deseas reanudar\n" + cadena));
+
+        cadena = "";
+
+        for (int i = 0; i < Partidas_Guardadas.get(numeros[0] - 1).getAtaques().size(); i++) {
+            cadena += "" + (i + 1) + ".-" + "Ataque " + (i + 1) + "\n";
+        }
+
+        numeros[1] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la posicion del ataque que deseas reanudar\n" + cadena));
+        return numeros;
+
     }
-}
+
+} //fin de la clase

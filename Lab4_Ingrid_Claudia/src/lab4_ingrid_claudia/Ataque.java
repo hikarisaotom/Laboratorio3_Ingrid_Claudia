@@ -16,7 +16,11 @@ public class Ataque {
 
     public Ataque() {
     }
-
+    
+    public Ataque(ArrayList<Jugador> Jugadores) {
+        this.Jugadores_Partida = Jugadores;
+    }
+    
     public ArrayList<Jugador> getJugadores_Partida() {
         return Jugadores_Partida;
     }
