@@ -87,8 +87,8 @@ public class Lab4_Ingrid_Claudia {
         switch (Opcion) {
             case "Mago":
                 Guerreros.add(new Mago());
-                
-               // OrdernarGuerreros();
+
+                // OrdernarGuerreros();
                 break;
             case "Elfo":
                 Guerreros.add(new Elfo());
@@ -181,31 +181,6 @@ public class Lab4_Ingrid_Claudia {
 
     }
 
-   /* public static void IniciarPartida() {
-        boolean Ganador = false;
-        int Turno = 0;
-        while (true) {
-            if (Ganador) {
-                break;
-            }
-            switch (Turno) {
-                case 0:
-                    Turno = 1;
-                    break;
-                case 1:
-                    Turno = 0;
-                    break;
-            }
-            Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
-
-            Jugadores_Partidas.add(Jugadores.get(Agregar_Jugador()));
-            Partidas.add(new Partida());
-            int Tamano = Partidas.size() - 1;
-            Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
-
-        }
-    }*/
-
     public static void Crear_Jugador() {
         String nombre = JOptionPane.showInputDialog("Ingresa el nombre de jugador");
         double dinero = Double.parseDouble(JOptionPane.showInputDialog("Ingresa la cantidad de dinero de jugador"));
@@ -225,24 +200,22 @@ public class Lab4_Ingrid_Claudia {
         Jugadores.add(new Jugador(nombre, dinero, puntos, Guerrero_Seleccionado));
         System.out.println(Jugadores.get(Jugadores.size() - 1));
     }
-    
+
     public static void Listar_Jugador() {
         String jugadores = "";
         for (int i = 0; i < Jugadores.size(); i++) {
-            jugadores += "" + (i + 1) + ".- " + Jugadores.get(i)+ "\n";
+            jugadores += "" + (i + 1) + ".- " + Jugadores.get(i) + "\n";
         }
 
-       /* int res = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la posicion del Jugador que deseas: \n"
+        /* int res = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la posicion del Jugador que deseas: \n"
                 + guerreros));
 
         //Guerreros.remove(res - 1);
         JOptionPane.showMessageDialog(null, "Jugador Seleccionado");
         System.out.println("ds");*/
-       
-       
-       JOptionPane.showMessageDialog(null, jugadores);
+        JOptionPane.showMessageDialog(null, jugadores);
     }
-     
+
     public static void IniciarPartida() {
         boolean Ganador = false;
         int Turno = 0;
@@ -252,6 +225,8 @@ public class Lab4_Ingrid_Claudia {
         Partidas.add(new Partida());
         int Tamano = Partidas.size() - 1;
         Partidas.get(Tamano).setJugadores_Partida(Jugadores_Partidas);
+        String[] Opciones = {"Si", "No"};
+        String Opcion = "";
 
         while (true) {
             if (Ganador) {
@@ -274,6 +249,23 @@ public class Lab4_Ingrid_Claudia {
                 int SuPoder = Jugadores_Partidas.get(TurnoOP).getGuerrero().Ataque() / 2;
                 Salud = Salud - (MiPoder + SuPoder);
                 Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
+
+                if (Turno == 1) {
+                    Opcion = (String) JOptionPane.showInputDialog(null,
+                            "Desea Guardar La Parida", //Mensaje
+                            "Guardar Partida",//TITULO
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            Opciones,
+                            Opciones[0]);
+
+                    switch (Opcion) {
+                        case "Si":
+                            Partidas.get(Tamano).getAtaques().add(new Ataque());
+                            break;
+                    }
+
+                }
 
             } else if (Jugadores_Partidas.get(Turno).getGuerrero() instanceof Elfo) {
                 int Salud = Jugadores_Partidas.get(TurnoOP).getGuerrero().getSalud();
@@ -309,5 +301,5 @@ public class Lab4_Ingrid_Claudia {
             }
         }
 
-     }
+    }
 }
