@@ -46,6 +46,7 @@ public class Dragon extends Guerrero{
         return "Dragon{" + "Color=" + Color + ", Raza=" + Raza + '}';
     }
     
+    @Override
     public void Ataque(){
         
     }

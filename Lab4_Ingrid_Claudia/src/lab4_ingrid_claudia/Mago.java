@@ -41,6 +41,7 @@ public class Mago extends Guerrero{
     }
   
     
+    @Override
     public void Ataque(){
         
     }

@@ -14,6 +14,7 @@ int puntos =0;
         this.puntos = puntos;
     }
     
+@Override
 public void Ataque (){
     
 }
