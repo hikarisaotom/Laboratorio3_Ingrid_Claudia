@@ -49,7 +49,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + "Nombre=" + Nombre + ", Dinero_Disponible=" + Dinero_Disponible + ", Puntos=" + Puntos + ", Guerrero=" + Guerrero + '}';
+        return "Jugador \n" + "Nombre =" + Nombre + "\nDinero_Disponible = " + Dinero_Disponible + "\nPuntos =" + Puntos + ",\nGuerrero = " + Guerrero + "\n";
     }
     
 }
