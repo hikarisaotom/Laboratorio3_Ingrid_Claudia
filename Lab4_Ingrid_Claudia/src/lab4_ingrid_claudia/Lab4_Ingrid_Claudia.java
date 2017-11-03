@@ -31,7 +31,7 @@ public class Lab4_Ingrid_Claudia {
                     break;
                 case "Registro de jugadores":
                     Crear_Jugador();
-                    
+
                     break;
                 case "Iniciar Partida":
                     break;
@@ -40,7 +40,7 @@ public class Lab4_Ingrid_Claudia {
                     break;
 
                 case "Listar Jugadores":
-                    OrdernarGuerreros();
+                    Listar_Jugador();
                     break;
 
                 case "Salir":
@@ -204,24 +204,239 @@ public class Lab4_Ingrid_Claudia {
         }
     }
 
-     public static void Crear_Jugador() {
+    public static void Crear_Jugador() {
         String nombre = JOptionPane.showInputDialog("Ingresa el nombre de jugador");
         double dinero = Double.parseDouble(JOptionPane.showInputDialog("Ingresa la cantidad de dinero de jugador"));
         int puntos = 0;
         int posicion_Guerrero = Agregar_Guerrero();
         Guerrero Guerrero_Seleccionado = Guerreros.get(posicion_Guerrero);
-        
-        while(Guerrero_Seleccionado.getCosto() > dinero){
-          posicion_Guerrero = Agregar_Guerrero();
-          Guerrero_Seleccionado = Guerreros.get(posicion_Guerrero);
-          
+
+        while (Guerrero_Seleccionado.getCosto() > dinero) {
+            posicion_Guerrero = Agregar_Guerrero();
+            Guerrero_Seleccionado = Guerreros.get(posicion_Guerrero);
+
         }// fin del while
-        
+
         dinero = dinero - Guerrero_Seleccionado.getCosto();
         Guerreros.remove(posicion_Guerrero);
-        
-        
+
         Jugadores.add(new Jugador(nombre, dinero, puntos, Guerrero_Seleccionado));
-        System.out.println(Jugadores.get(Jugadores.size()-1));
+        System.out.println(Jugadores.get(Jugadores.size() - 1));
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void Listar_Jugador() {
+        String jugadores = "";
+        for (int i = 0; i < Jugadores.size(); i++) {
+            jugadores += "" + (i + 1) + ".- " + Jugadores.get(i)+ "\n";
+        }
+
+       /* int res = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la posicion del Jugador que deseas: \n"
+                + guerreros));
+
+        //Guerreros.remove(res - 1);
+        JOptionPane.showMessageDialog(null, "Jugador Seleccionado");
+        System.out.println("ds");*/
+       
+       
+       JOptionPane.showMessageDialog(null, jugadores);
     }
 }
