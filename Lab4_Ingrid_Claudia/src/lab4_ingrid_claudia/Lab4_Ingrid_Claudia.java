@@ -11,7 +11,7 @@ public class Lab4_Ingrid_Claudia {
 
     public static void main(String[] args) {
         String Opcion = "";
-        //System.out.println("ldgdgdjh");
+        System.out.println("ldgdgdjh");
         while (Opcion != "Salir") {
             String[] Opciones = {"Creacion de guerreros", "Eliminación de Guerreos", "Registro de jugadores", "Iniciar Partida", "Cargar Partida", "Listar Jugadores", "Salir"};
             Opcion = (String) JOptionPane.showInputDialog(null,
