@@ -14,7 +14,7 @@ int puntos =0;
         this.puntos = puntos;
     }
     
- public int  Ataque(){
+ public double  Ataque(){
         return super.getPoder_Ataque();
     }
 

@@ -46,7 +46,7 @@ public class Dragon extends Guerrero{
         return "Dragon{" + "Color=" + Color + ", Raza=" + Raza + '}';
     }
     
-     public int  Ataque(){
+     public double  Ataque(){
         return super.getPoder_Ataque();
     }
     
