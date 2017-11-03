@@ -315,6 +315,9 @@ public class Lab4_Ingrid_Claudia {
                     Jugadores_Partidas.get(TurnoOP).getGuerrero().setSalud(Salud);
                     Jugadores_Partidas.get(TurnoOP).getGuerrero().setPoder_Ataque(SuPoder);
                 }
+                
+                Ganador = Ganador(Jugadores_Partidas);
+                
                 Partidas.get(Tamano).getAtaques().add(new Ataque(Jugadores_Partidas));
 
                 JOptionPane.showMessageDialog(null, "Esta Atacando el Jugador " + Turno + "\n"
@@ -377,7 +380,13 @@ public class Lab4_Ingrid_Claudia {
     
     public static boolean Ganador(ArrayList<Jugador>Jugadores_Partidas){
         if (Jugadores_Partidas.get(0).getGuerrero().getSalud()==0||Jugadores_Partidas.get(1).getGuerrero().getSalud()==0) {
+           if(Jugadores_Partidas.get(0).getGuerrero().getSalud()==0){
+               System.out.println("gano 2");
+           }else{
+               System.out.println("gano 1");
+           }
             return true;
+            
         }
 
         return false;
