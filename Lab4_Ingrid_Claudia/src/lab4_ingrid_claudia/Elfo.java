@@ -44,6 +44,7 @@ public class Elfo extends Guerrero {
         return "Elfo{" + "Tipo_Arma=" + Tipo_Arma + ", Rango_Militar=" + Rango_Militar + '}';
     }
     
+    @Override
     public void Ataque(){
         
     }
