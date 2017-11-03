@@ -8,6 +8,7 @@ public class Lab4_Ingrid_Claudia {
     public static ArrayList<Guerrero> Guerreros = new ArrayList();
     public static ArrayList<Jugador> Jugadores = new ArrayList();
     public static ArrayList<Partida> Partidas = new ArrayList();
+    public static ArrayList<Jugador> Jugadores_Partidas = new ArrayList();
 
     public static void main(String[] args) {
         String Opcion = "";
@@ -46,7 +47,7 @@ public class Lab4_Ingrid_Claudia {
             }//Fin del switch.
         }//Fin del while.
     }//Fin del main.
-    
+
     public static void Eliminar_Guerrero() {
         String guerreros = "";
         for (int i = 0; i < Guerreros.size(); i++) {
@@ -60,16 +61,16 @@ public class Lab4_Ingrid_Claudia {
         JOptionPane.showMessageDialog(null, "Guerero eliminado");
 
     }
-    
-public static void Crear_Guerrero(){
-    String Nombre= JOptionPane.showInputDialog("Ingrese el nombre dle guerrero: ");
-    String Lugar_Nacimiento=JOptionPane.showInputDialog("Ingrese el lugar de nacimiento del guerrero: ");
-   /*NECESITA VALIDACION DE PUNTOS MENORES A 50*/
-    int Poder_Ataque=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el poder de ataque"));
-    int Salud=Integer.parseInt(JOptionPane.showInputDialog("Ingrese  la salud del guerrero"));
-   int Edad=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del guerrero: "));
 
-    double Costo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Costo del guerrero: "));
+    public static void Crear_Guerrero() {
+        String Nombre = JOptionPane.showInputDialog("Ingrese el nombre dle guerrero: ");
+        String Lugar_Nacimiento = JOptionPane.showInputDialog("Ingrese el lugar de nacimiento del guerrero: ");
+        /*NECESITA VALIDACION DE PUNTOS MENORES A 50*/
+        int Poder_Ataque = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el poder de ataque"));
+        int Salud = Integer.parseInt(JOptionPane.showInputDialog("Ingrese  la salud del guerrero"));
+        int Edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del guerrero: "));
+
+        double Costo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Costo del guerrero: "));
         String Opcion = "";
         String[] Opciones = {"Mago", "Elfo", "Dragon", "Arquero", "Bruja"};
         Opcion = (String) JOptionPane.showInputDialog(null,
@@ -107,38 +108,73 @@ public static void Crear_Guerrero(){
     }
 
     public static void OrdernarGuerreros() {
+        String cadena = "";
+        int posicion = 0;
         ArrayList<Guerrero> Nuevo = new ArrayList();
-        
+
         for (Guerrero Guerrero1 : Guerreros) {
             if (Guerrero1 instanceof Mago) {
                 Nuevo.add(Guerrero1);
             }
         }
-         for (Guerrero Guerrero1 : Guerreros) {
+        for (Guerrero Guerrero1 : Guerreros) {
             if (Guerrero1 instanceof Bruja) {
                 Nuevo.add(Guerrero1);
             }
         }
-         
-          for (Guerrero Guerrero1 : Guerreros) {
+
+        for (Guerrero Guerrero1 : Guerreros) {
             if (Guerrero1 instanceof Elfo) {
                 Nuevo.add(Guerrero1);
             }
         }
-          
-           for (Guerrero Guerrero1 : Guerreros) {
+
+        for (Guerrero Guerrero1 : Guerreros) {
             if (Guerrero1 instanceof Dragon) {
                 Nuevo.add(Guerrero1);
             }
         }
-            for (Guerrero Guerrero1 : Guerreros) {
+        for (Guerrero Guerrero1 : Guerreros) {
             if (Guerrero1 instanceof Arquero) {
                 Nuevo.add(Guerrero1);
             }
         }
-            Guerreros=Nuevo;
-            System.out.println(Guerreros);
+
+        Guerreros = Nuevo;
+
+        System.out.println(Guerreros);
     }//Fin del metodo.
     
-    
+     public static int Agregar_Guerrero() {
+        String guerreros = "";
+        for (int i = 0; i < Guerreros.size(); i++) {
+            guerreros += "" + (i + 1) + ".- " + Guerreros.get(i).getNombre() + "\n";
+        }
+
+        int res = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la posicion del Guerrero que deseas: \n"
+                + guerreros));
+
+        //Guerreros.remove(res - 1);
+        JOptionPane.showMessageDialog(null, "Guerero Seleccionado");
+         System.out.println("ds");
+        return res;
+
+    }
+     
+     public static int Agregar_Jugador() {
+        String guerreros = "";
+        for (int i = 0; i < Jugadores.size(); i++) {
+            guerreros += "" + (i + 1) + ".- " + Jugadores.get(i).getNombre() + "\n";
+        }
+
+        int res = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la posicion del Jugador que deseas: \n"
+                + guerreros));
+
+        //Guerreros.remove(res - 1);
+        JOptionPane.showMessageDialog(null, "Jugador Seleccionado");
+         System.out.println("ds");
+        return res;
+
+    }
+
 }
